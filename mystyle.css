@@ -1,6 +1,6 @@
 $crossword-item-size: 50px;
-$crossword-column-count: 13;
-$crossword-row-count: 13;
+$crossword-column-count: 5;
+$crossword-row-count: 5;
 
 $color-valid-item: #9AFF67;
 $color-focus-item: #FFFF74;
