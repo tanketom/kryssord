@@ -1,31 +1,32 @@
 {
     "solution": [
-        ["C", "A", "T", "S", "#", "T", "S"],
-        ["A", "P", "P", "#", "E", "S", "A"],
-        ["T", "A", "B", "L", "E", "#", "S"],
-        ["#", "A", "T", "U", "R", "D", "A"],
-        ["A", "P", "#", "L", "E", "S", "A"],
-        ["T", "A", "B", "L", "#", "T", "S"],
-        ["S", "#", "T", "U", "R", "D", "A"]
+        ["#", "#", "C", "U", "D", "#", "#"],
+        ["#", "C", "A", "K", "E", "S", "#"],
+        ["R", "E", "B", "R", "A", "N", "D"],
+        ["A", "L", "L", "#", "D", "A", "O"],
+        ["D", "I", "E", "T", "A", "R", "Y"],
+        ["A", "N", "T", "H", "I", "L", "L"],
+        ["R", "E", "V", "E", "R", "S", "E"]
     ],
     "clues": {
         "across": [
-            "1. Feline animal",
-            "4. Fruit",
-            "7. Furniture",
-            "10. Day of the week",
-            "13. Fruit",
-            "16. Electronic device",
-            "19. Day of the week"
+            "1. Stuff chewed by a cow",
+            "4. Bakery offerings",
+            "6. Corporate makeover",
+            "8. 100%",
+            "9. ___ De Jing",
+            "10. Like restrictions you might mention to a waiter",
+            "12. Difficult shape for a mini golf hole. "
+            "13. Ah, this takes me back!"
         ],
         "down": [
-            "1. Opposite of dog",
-            "2. Opposite of orange",
-            "3. Opposite of chair",
-            "5. Opposite of Sunday",
-            "6. Opposite of banana",
-            "8. Opposite of phone",
-            "9. Opposite of Monday"
+            "1. Disney channel and Golf Channel",
+            "2. Kyiv's land: Abbr.",
+            "3. Awkward silence in a broadcast",
+            "4. Dion who performed atop the Eiffel Tower",
+            "5. Responds in aggressive and threatening tone",
+            "6. Weather-detecting technology",
+            "7. Writer Arthur Conan ___"
         ]
     }
 }
