@@ -13,7 +13,7 @@ function getWeekNumber(d) {
 
 const currentWeek = getWeekNumber(new Date());
 const currentYear = new Date().getFullYear();
-const jsonFileName = `W${currentWeek}-${currentYear}.json`;
+const jsonFileName = `JSON/W${currentWeek}-${currentYear}.json`;
 
 fetch(jsonFileName)
     .then(response => response.json())
