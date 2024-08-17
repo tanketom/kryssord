@@ -1,5 +1,5 @@
 # kryssord
-This crossword system is an experiment in generative AI, and made largely using Microsoft Copilot as a programmer. 
+Andreas can't code, so he tries prompting instead - a crossword experiment. This crossword system is an experiment in generative AI, and made largely using Microsoft Copilot as a programmer. 
 
 <img width="957" alt="Skjermbilde 2024-08-17 kl  23 21 35" src="https://github.com/user-attachments/assets/64693d67-55ca-4b37-8ee2-f2b3ac31782c">
 
