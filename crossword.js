@@ -1,5 +1,4 @@
 let solution = [];
-let blackSquares = [];
 let clues = { across: [], down: [] };
 const crossword = document.getElementById('crossword');
 const startTime = new Date();
@@ -20,7 +19,6 @@ fetch(jsonFileName)
     .then(response => response.json())
     .then(data => {
         solution = data.solution;
-        blackSquares = data.blackSquares;
         clues = data.clues;
         createCrossword();
         displayClues();
@@ -32,11 +30,12 @@ function createCrossword() {
         const row = document.createElement('tr');
         for (let j = 0; j < 7; j++) {
             const cell = document.createElement('td');
-            if (blackSquares.some(([x, y]) => x === i && y === j)) {
+            if (solution[i][j] === '#') {
                 cell.classList.add('black');
             } else {
                 const input = document.createElement('input');
                 input.setAttribute('maxlength', '1');
+                input.addEventListener('input', moveToNext);
                 cell.appendChild(input);
 
                 // Add clue number
@@ -55,7 +54,7 @@ function createCrossword() {
 
 function shouldNumberCell(row, col) {
     // Check if the cell should be numbered
-    if (row === 0 || col === 0 || blackSquares.some(([x, y]) => (x === row - 1 && y === col) || (x === row && y === col - 1))) {
+    if (row === 0 || col === 0 || solution[row - 1][col] === '#' || solution[row][col - 1] === '#') {
         return true;
     }
     return false;
@@ -78,11 +77,21 @@ function displayClues() {
     });
 }
 
+function moveToNext(event) {
+    const input = event.target;
+    const cell = input.parentElement;
+    const nextCell = cell.nextElementSibling;
+
+    if (nextCell && nextCell.firstChild) {
+        nextCell.firstChild.focus();
+    }
+}
+
 function checkSolution() {
     let correct = true;
     for (let i = 0; i < 7; i++) {
         for (let j = 0; j < 7; j++) {
-            if (!blackSquares.some(([x, y]) => x === i && y === j)) {
+            if (solution[i][j] !== '#') {
                 const input = crossword.rows[i].cells[j].firstChild;
                 if (input.value.toUpperCase() !== solution[i][j]) {
                     correct = false;
