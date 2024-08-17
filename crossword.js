@@ -1,34 +1,81 @@
-const solution = [
-    ["C", "A", "T", "S", "A", "T", "S"],
-    ["A", "P", "P", "L", "E", "S", "A"],
-    ["T", "A", "B", "L", "E", "T", "S"],
-    ["S", "A", "T", "U", "R", "D", "A"],
-    ["A", "P", "P", "L", "E", "S", "A"],
-    ["T", "A", "B", "L", "E", "T", "S"],
-    ["S", "A", "T", "U", "R", "D", "A"]
-];
-
-const blackSquares = [
-    [0, 1], [1, 3], [2, 5], [3, 0], [3, 6], [4, 2], [5, 4], [6, 1]
-];
-
+let solution = [];
+let blackSquares = [];
+let clues = { across: [], down: [] };
 const crossword = document.getElementById('crossword');
 const startTime = new Date();
 
-for (let i = 0; i < 7; i++) {
-    const row = document.createElement('tr');
-    for (let j = 0; j < 7; j++) {
-        const cell = document.createElement('td');
-        if (blackSquares.some(([x, y]) => x === i && y === j)) {
-            cell.classList.add('black');
-        } else {
-            const input = document.createElement('input');
-            input.setAttribute('maxlength', '1');
-            cell.appendChild(input);
+function getWeekNumber(d) {
+    d = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
+    d.setUTCDate(d.getUTCDate() + 4 - (d.getUTCDay() || 7));
+    const yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
+    const weekNo = Math.ceil((((d - yearStart) / 86400000) + 1) / 7);
+    return weekNo;
+}
+
+const currentWeek = getWeekNumber(new Date());
+const currentYear = new Date().getFullYear();
+const jsonFileName = `W${currentWeek}-${currentYear}.json`;
+
+fetch(jsonFileName)
+    .then(response => response.json())
+    .then(data => {
+        solution = data.solution;
+        blackSquares = data.blackSquares;
+        clues = data.clues;
+        createCrossword();
+        displayClues();
+    });
+
+function createCrossword() {
+    let clueNumber = 1;
+    for (let i = 0; i < 7; i++) {
+        const row = document.createElement('tr');
+        for (let j = 0; j < 7; j++) {
+            const cell = document.createElement('td');
+            if (blackSquares.some(([x, y]) => x === i && y === j)) {
+                cell.classList.add('black');
+            } else {
+                const input = document.createElement('input');
+                input.setAttribute('maxlength', '1');
+                cell.appendChild(input);
+
+                // Add clue number
+                if (shouldNumberCell(i, j)) {
+                    const number = document.createElement('span');
+                    number.classList.add('number');
+                    number.innerText = clueNumber++;
+                    cell.appendChild(number);
+                }
+            }
+            row.appendChild(cell);
         }
-        row.appendChild(cell);
+        crossword.appendChild(row);
     }
-    crossword.appendChild(row);
+}
+
+function shouldNumberCell(row, col) {
+    // Check if the cell should be numbered
+    if (row === 0 || col === 0 || blackSquares.some(([x, y]) => (x === row - 1 && y === col) || (x === row && y === col - 1))) {
+        return true;
+    }
+    return false;
+}
+
+function displayClues() {
+    const acrossClues = document.getElementById('across-clues');
+    const downClues = document.getElementById('down-clues');
+
+    clues.across.forEach(clue => {
+        const li = document.createElement('li');
+        li.innerText = clue;
+        acrossClues.appendChild(li);
+    });
+
+    clues.down.forEach(clue => {
+        const li = document.createElement('li');
+        li.innerText = clue;
+        downClues.appendChild(li);
+    });
 }
 
 function checkSolution() {
