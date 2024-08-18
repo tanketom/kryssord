@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CROSS WORDS</title>
+    <title>Andreas crosses words</title>
     <link rel="stylesheet" href="mystyle.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,7 +11,7 @@
 </head>
 <body>
     <div id="container">
-        <h1>CROSS WORDS</h1>
+        <h1>ANDREAS IS CROSS WITH WORDS</h1>
         <div id="controls">
             <label for="week-select">Select Week:</label>
             <select id="week-select"></select>
@@ -19,14 +19,27 @@
         <table id="crossword"></table>
         <button onclick="checkSolution()">Check Solution</button>
         <div id="message"></div>
-        
         <div id="clues">
             <h2>Across</h2>
             <div id="across-clues"></div>
             <h2>Down</h2>
             <div id="down-clues"></div>
         </div>
-        <footer><a href="https://github.com/tanketom/kryssord">This is an experiment in developing with a generative AI, read more on Github.</a></footer>
+        <div id="score-form" style="display: none;">
+            <h2>Submit Your Score</h2>
+            <form onsubmit="submitScore(event)">
+                <label for="name">Name (3 characters):</label>
+                <input type="text" id="name" maxlength="3" required>
+                <label for="time">Time (seconds):</label>
+                <input type="text" id="time" readonly>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+        <footer>
+            <a href="https://github.com/tanketom/kryssord">This is an experiment in developing with a generative AI, read more on Github.</a>
+            <br>
+            <a href="scores.html">View Scores</a>
+        </footer>
     </div>
     <script src="crossword.js"></script>
 </body>
