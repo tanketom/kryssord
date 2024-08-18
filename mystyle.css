@@ -1,13 +1,80 @@
-table { border-collapse: collapse; }
-td { width: 30px; height: 30px; text-align: center; border: 1px solid black; position: relative; }
-input { width: 100%; height: 100%; text-align: center; border: none; text-transform: uppercase; }
-.black { background-color: black; }
-.number { position: absolute; top: 2px; left: 2px; font-size: 10px; color: #999999;}
-footer { margin-top: 20px; }
 body {
-  font-family: "Arimo", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: <weight>;
-  font-style: normal;
-  text-transform: uppercase;
+    font-family: 'Arimo', sans-serif;
+    background-color: #FDF5E6; /* Yellowing paper color */
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+    max-width: 800px;
+    width: 100%;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    border-radius: 10px;
+}
+
+#controls {
+    margin-bottom: 20px;
+}
+
+#week-select {
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #723A9F;
+    border-radius: 5px;
+    color: white;
+    background-color: #723A9F;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+td {
+    width: 14.28%; /* 100% / 7 columns */
+    height: 50px;
+    border: 1px solid black;
+    position: relative;
+}
+
+td.black {
+    background-color: black;
+}
+
+td input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    text-align: center;
+    font-size: 24px;
+    text-transform: uppercase;
+}
+
+td .number {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    font-size: 12px;
+}
+
+#clues {
+    display: flex;
+    justify-content: space-between;
+}
+
+#clues div {
+    width: 45%;
+}
+
+#message {
+    font-size: 18px;
+    margin-top: 20px;
 }
