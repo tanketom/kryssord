@@ -128,23 +128,4 @@ function checkSolution() {
     message.innerText = correct 
         ? `Congratulations! You solved the puzzle in ${timeTaken} seconds.` 
         : 'Some answers are incorrect. Keep trying!';
-
-    if (correct) {
-        document.getElementById('score-form').style.display = 'block';
-        document.getElementById('time').value = timeTaken;
-    }
 }
-
-// Submit the score
-function submitScore(event) {
-    event.preventDefault();
-    const name = document.getElementById('name').value;
-    const time = document.getElementById('time').value;
-
-    // Save the score to local storage
-    const scores = JSON.parse(localStorage.getItem('scores')) || [];
-    scores.push({ name, time });
-    localStorage.setItem('scores', JSON.stringify(scores));
-
-    alert(`Score submitted! Name: ${name}, Time: ${time} seconds`);
-    document.getElementById('score-form').style.display
