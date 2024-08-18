@@ -1,0 +1,31 @@
+{
+    "solution": [
+        ["#", "#", "D", "I", "N", "G", "O"],
+        ["#", "M", "A", "T", "U", "R", "E"],
+        ["#", "A", "L", "S", "T", "O", "N"],
+        ["B", "U", "T", "A", "L", "S", "O"],
+        ["A", "M", "O", "L", "E", "S", "#"],
+        ["B", "E", "N", "I", "T", "O", "#"],
+        ["Y", "E", "S", "E", "S", "#", "#"]
+    ],
+    "clues": {
+        "across": [
+            "1. Mortal enemy of 8-Down",
+            "6. Grown",
+            "7. Railway heritage site by Tyne River",
+            "8. Not only,…",
+            "9. Soap plants",
+            "10. Worked best upside-down",
+            "11. Affirmatives"
+        ],
+        "down": [
+            "1. Luke's target practice",
+            "2. Accused outcry",
+            "3. Squirrel trail mix",
+            "4. Big-o concerto",
+            "5. Alcoholic prefix",
+            "6. Toledo river",
+            "7. Mortal enemy of 1-Across"
+        ]
+    }
+}
