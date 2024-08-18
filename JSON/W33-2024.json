@@ -1,32 +1,31 @@
 {
     "solution": [
-        ["#", "#", "C", "U", "D", "#", "#"],
-        ["#", "C", "A", "K", "E", "S", "#"],
-        ["R", "E", "B", "R", "A", "N", "D"],
-        ["A", "L", "L", "#", "D", "A", "O"],
-        ["D", "I", "E", "T", "A", "R", "Y"],
-        ["A", "N", "T", "H", "I", "L", "L"],
-        ["R", "E", "V", "E", "R", "S", "E"]
+        ["#", "#", "P", "T", "O", "#", "#"],
+        ["#", "D", "I", "A", "N", "E", "#"],
+        ["D", "O", "N", "K", "E", "Y", "S"],
+        ["S", "P", "H", "E", "R", "E", "S"],
+        ["T", "E", "E", "N", "E", "R", "S"],
+        ["#", "Y", "A", "T", "E", "S", "#"],
+        ["#", "#", "D", "O", "L", "#", "#"]
     ],
     "clues": {
         "across": [
-            "1. Stuff chewed by a cow",
-            "4. Bakery offerings",
-            "6. Corporate makeover",
-            "8. 100%",
-            "9. ___ De Jing",
-            "10. Like restrictions you might mention to a waiter",
-            "12. Difficult shape for a mini golf hole. ",
-            "13. Ah, this takes me back!"
+            "1. Kristian Blummenfelt tour organisation",
+            "4. Dale's Cooper's first word",
+            "6. Several democratic animals",
+            "8. Pointless items",
+            "9. Slang for adolescents, not used by adolescents now",
+            "10. Peter who directed Bullitt",
+            "11. Hong Kong money: Abbr."
         ],
         "down": [
-            "1. Disney channel and Golf Channel",
-            "2. Kyiv's land: Abbr.",
-            "3. Awkward silence in a broadcast",
-            "4. Dion who performed atop the Eiffel Tower",
-            "5. Responds in aggressive and threatening tone",
-            "6. Weather-detecting technology",
-            "7. Writer Arthur Conan ___"
+            "1. Acupunctured villain",
+            "2. When hobbits were Isengard'd",
+            "3. Short film",
+            "4. Unbearded and short",
+            "5. Watchers",
+            "6. Summer hours",
+            "7. Limbless reptiles' popcultural proverb"
         ]
     }
 }
