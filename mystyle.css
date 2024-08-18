@@ -11,7 +11,7 @@ body {
 
 .container {
     text-align: center;
-    max-width: 800px;
+    max-width: 100%;
     width: 100%;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -40,7 +40,8 @@ table {
 
 td {
     width: 14.28%; /* 100% / 7 columns */
-    height: 50px;
+    height: 0;
+    padding-bottom: 14.28%; /* Maintain square aspect ratio */
     border: 1px solid black;
     position: relative;
 }
@@ -56,6 +57,11 @@ td input {
     text-align: center;
     font-size: 24px;
     text-transform: uppercase;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
 }
 
 td .number {
@@ -67,14 +73,33 @@ td .number {
 
 #clues {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
 }
 
 #clues div {
-    width: 45%;
+    width: 100%;
+    margin-bottom: 20px;
 }
 
 #message {
     font-size: 18px;
     margin-top: 20px;
+}
+
+/* Larger screens */
+@media (min-width: 600px) {
+    .container {
+        max-width: 800px;
+    }
+
+    #clues {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    #clues div {
+        width: 45%;
+        margin-bottom: 0;
+    }
 }
