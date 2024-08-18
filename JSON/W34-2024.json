@@ -1,0 +1,34 @@
+{
+    "solution": [
+        ["D", "R", "I", "N", "K", "S", "#"],
+        ["R", "A", "N", "T", "E", "R", "S"],
+        ["I", "N", "A", "H", "E", "A", "P"],
+        ["V", "#", "D", "#", "P", "#", "L"],
+        ["E", "U", "R", "A", "S", "I", "A"],
+        ["S", "H", "A", "M", "A", "N", "S"],
+        ["#", "S", "W", "I", "T", "C", "H"]
+    ],
+    "clues": {
+        "across": [
+            "1. Screwdrivers, et cetera",
+            "7. Youtube commenters",
+            "9. Firewoodly stacked",
+            "10. Neo-bolshevik 80s super power",
+            "14. In Norway: Princess marriage material",
+            "15. Top and bottom",
+            "11. Hong Kong money: Abbr."
+        ],
+        "down": [
+            "1. Data storages",
+            "2. A Japanese King Lear",
+            "3. Status quo ante bellum",
+            "4. Unknown number, but it's high!",
+            "5. Is 7-Across still going?!",
+            "6. Spanish lady: Abbr.",
+            "8. Mermaid movie",
+            "11. Hesitant noises",
+            "12. French buddy",
+            "13. Short for a business"
+        ]
+    }
+}
