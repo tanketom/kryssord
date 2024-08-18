@@ -2,29 +2,51 @@ let solution = [];
 let clues = { across: [], down: [] };
 const crossword = document.getElementById('crossword');
 const startTime = new Date();
+const weekSelect = document.getElementById('week-select');
 
+// Get the current week number
 function getWeekNumber(d) {
     d = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
     d.setUTCDate(d.getUTCDate() + 4 - (d.getUTCDay() || 7));
     const yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
-    const weekNo = Math.ceil((((d - yearStart) / 86400000) + 1) / 7);
-    return weekNo;
+    return Math.ceil((((d - yearStart) / 86400000) + 1) / 7);
 }
 
 const currentWeek = getWeekNumber(new Date());
 const currentYear = new Date().getFullYear();
-const jsonFileName = `JSON/W${currentWeek}-${currentYear}.json`;
 
-fetch(jsonFileName)
-    .then(response => response.json())
-    .then(data => {
-        solution = data.solution;
-        clues = data.clues;
-        createCrossword();
-        displayClues();
-    });
+// Populate the week dropdown with the last 5 weeks
+for (let i = 0; i < 5; i++) {
+    const week = currentWeek - i;
+    const option = document.createElement('option');
+    option.value = `W${week}-${currentYear}`;
+    option.text = `Week ${week}, ${currentYear}`;
+    weekSelect.appendChild(option);
+}
 
+// Load the selected week's crossword
+weekSelect.addEventListener('change', () => {
+    const selectedWeek = weekSelect.value;
+    loadCrossword(selectedWeek);
+});
+
+// Load the crossword for the current week by default
+loadCrossword(`W${currentWeek}-${currentYear}`);
+
+function loadCrossword(jsonFileName) {
+    fetch(`JSON/${jsonFileName}.json`)
+        .then(response => response.json())
+        .then(data => {
+            solution = data.solution;
+            clues = data.clues;
+            createCrossword();
+            displayClues();
+        });
+}
+
+// Create the crossword grid
 function createCrossword() {
+    crossword.innerHTML = ''; // Clear previous crossword
     let clueNumber = 1;
     for (let i = 0; i < 7; i++) {
         const row = document.createElement('tr');
@@ -38,7 +60,7 @@ function createCrossword() {
                 input.addEventListener('input', moveToNext);
                 cell.appendChild(input);
 
-                // Add clue number
+                // Add clue number if needed
                 if (shouldNumberCell(i, j)) {
                     const number = document.createElement('span');
                     number.classList.add('number');
@@ -52,17 +74,17 @@ function createCrossword() {
     }
 }
 
+// Determine if a cell should be numbered
 function shouldNumberCell(row, col) {
-    // Check if the cell should be numbered
-    if (row === 0 || col === 0 || solution[row - 1][col] === '#' || solution[row][col - 1] === '#') {
-        return true;
-    }
-    return false;
+    return row === 0 || col === 0 || solution[row - 1][col] === '#' || solution[row][col - 1] === '#';
 }
 
+// Display the clues
 function displayClues() {
     const acrossClues = document.getElementById('across-clues');
     const downClues = document.getElementById('down-clues');
+    acrossClues.innerHTML = ''; // Clear previous clues
+    downClues.innerHTML = ''; // Clear previous clues
 
     clues.across.forEach(clue => {
         const li = document.createElement('li');
@@ -77,16 +99,16 @@ function displayClues() {
     });
 }
 
+// Move to the next cell on input
 function moveToNext(event) {
     const input = event.target;
-    const cell = input.parentElement;
-    const nextCell = cell.nextElementSibling;
-
+    const nextCell = input.parentElement.nextElementSibling;
     if (nextCell && nextCell.firstChild) {
         nextCell.firstChild.focus();
     }
 }
 
+// Check the solution
 function checkSolution() {
     let correct = true;
     for (let i = 0; i < 7; i++) {
@@ -101,12 +123,9 @@ function checkSolution() {
         }
     }
 
-    const endTime = new Date();
-    const timeTaken = Math.floor((endTime - startTime) / 1000);
-
-    if (correct) {
-        document.getElementById('message').innerText = `Congratulations! You solved the puzzle in ${timeTaken} seconds.`;
-    } else {
-        document.getElementById('message').innerText = 'Some answers are incorrect. Keep trying!';
-    }
+    const timeTaken = Math.floor((new Date() - startTime) / 1000);
+    const message = document.getElementById('message');
+    message.innerText = correct 
+        ? `Congratulations! You solved the puzzle in ${timeTaken} seconds.` 
+        : 'Some answers are incorrect. Keep trying!';
 }

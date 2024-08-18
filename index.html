@@ -3,20 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kryssord</title>
-    <link rel="stylesheet" href="mystyle.css">
+    <title>Andreas crosses words</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Andreas can't code, so he tries prompting instead - a crossword experiment</h1>
+    <div id="controls">
+        <label for="week-select">Select Week:</label>
+        <select id="week-select"></select>
+    </div>
     <table id="crossword"></table>
     <button onclick="checkSolution()">Check Solution</button>
-    <p id="message"></p>
-    <div>
-        <h2>Across</h2>
-        <ul id="across-clues"></ul>
-        <h2>Down</h2>
-        <ul id="down-clues"></ul>
+    <div id="clues">
+        <div id="across-clues"></div>
+        <div id="down-clues"></div>
     </div>
+    <div id="message"></div>
     <script src="crossword.js"></script>
     <footer><a href="https://github.com/tanketom/kryssord">This is an experiment in developing with a generative AI, read more on Github.</a></footer>
 </body>
