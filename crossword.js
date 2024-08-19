@@ -76,7 +76,35 @@ function createCrossword() {
 
 // Determine if a cell should be numbered
 function shouldNumberCell(row, col) {
-    return row === 0 || col === 0 || solution[row - 1][col] === '#' || solution[row][col - 1] === '#';
+    return (isStartOfWord(row, col, 'across') && wordLength(row, col, 'across') >= 3) ||
+           (isStartOfWord(row, col, 'down') && wordLength(row, col, 'down') >= 3);
+}
+
+// Check if the cell is the start of a word in the given direction
+function isStartOfWord(row, col, direction) {
+    if (direction === 'across') {
+        return col === 0 || solution[row][col - 1] === '#';
+    } else if (direction === 'down') {
+        return row === 0 || solution[row - 1][col] === '#';
+    }
+    return false;
+}
+
+// Calculate the length of the word starting at the given cell in the given direction
+function wordLength(row, col, direction) {
+    let length = 0;
+    if (direction === 'across') {
+        while (col < solution[row].length && solution[row][col] !== '#') {
+            length++;
+            col++;
+        }
+    } else if (direction === 'down') {
+        while (row < solution.length && solution[row][col] !== '#') {
+            length++;
+            row++;
+        }
+    }
+    return length;
 }
 
 // Display the clues
