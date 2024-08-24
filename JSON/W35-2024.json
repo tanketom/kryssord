@@ -1,0 +1,31 @@
+{
+    "solution": [
+        ["#", "#", "M", "S", "P", "#", "#"],
+        ["#", "S", "A", "T", "I", "E", "#"],
+        ["U", "N", "R", "E", "A", "D", "Y"],
+        ["S", "O", "L", "A", "N", "G", "E"],
+        ["S", "T", "O", "R", "I", "E", "S"],
+        ["#", "S", "W", "I", "S", "S", "#"],
+        ["#", "#", "E", "C", "T", "#", "#"]
+    ],
+    "clues": {
+        "across": [
+            "1. Welsh rock band formed in 1986: Abbr.",
+            "4. Composer Erik, whose "Gymnopedies" is widely used in movies",
+            "6. Not prepared",
+            "8. Destiny's Child understudy",
+            "9. Narratives",
+            "10. Landlocked confederation",
+            "11. Common misspelling of et cetera"
+        ],
+        "down": [
+            "1. Philip, hardboiled",
+            "2. Fatty acid",
+            "3. Keyboard pilot",
+            "4. Nasal blockers",
+            "5. A cube has twelve",
+            "6. American ship prefix",
+            "7. Amen"
+        ]
+    }
+}
